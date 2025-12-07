@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>听“武侠”</title>
+  <title>Hear "Wuxia"</title>
   <style>
     body {
       display: flex;
@@ -46,22 +46,21 @@
 <body>
   <div class="container">
     <h1>武侠</h1>
-    <button onclick="speak()">🔊 点击听发音</button>
-    <p class="note">普通话读音：wǔ xiá</p>
+    <button onclick="speak()">🔊 Click to Hear Pronunciation</button>
+    <p class="note">Mandarin pronunciation: wǔ xiá</p>
   </div>
 
   <script>
     function speak() {
       if ('speechSynthesis' in window) {
-        // 取消之前的语音
         speechSynthesis.cancel();
         const utterance = new SpeechSynthesisUtterance('武侠');
         utterance.lang = 'zh-CN';
-        utterance.rate = 1.0;   // 语速
-        utterance.pitch = 1.0;  // 音调
+        utterance.rate = 1.0;
+        utterance.pitch = 1.0;
         speechSynthesis.speak(utterance);
       } else {
-        alert('您的设备不支持语音播放，请使用 Chrome、Edge 或 Safari 浏览器。');
+        alert('Your browser does not support speech synthesis. Please use Chrome, Edge, or Safari.');
       }
     }
   </script>
